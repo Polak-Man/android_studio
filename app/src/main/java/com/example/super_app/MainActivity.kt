@@ -27,5 +27,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AjoutDepActivity::class.java)
             startActivity(intent)
         }
+        // Lier le bouton "button_ajout_dep" pour rediriger vers AjoutDepActivity
+        findViewById<Button>(R.id.button_ajout_dep).setOnClickListener {
+            // Démarrer Ajout_Dep_Activity
+            val intent = Intent(this, AjoutDepActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

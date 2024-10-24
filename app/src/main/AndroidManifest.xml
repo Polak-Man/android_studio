@@ -25,6 +25,9 @@
         <activity
             android:name=".AjoutDepActivity"
             android:exported="true" />
+        <activity
+            android:name=".Aff_Activity"
+            android:exported="true" />
 
     </application>
 

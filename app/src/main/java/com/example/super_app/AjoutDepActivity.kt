@@ -2,11 +2,10 @@ package com.example.super_app
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-
 
 class AjoutDepActivity : AppCompatActivity() {
 
@@ -14,7 +13,7 @@ class AjoutDepActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ajout_dep) // Vérifiez que ce layout existe
+        setContentView(R.layout.activity_ajout_dep) // Assurez-vous que ce layout existe
 
         // Initialiser la base de données
         dbHelper = DatabaseHelper(this)
@@ -43,14 +42,13 @@ class AjoutDepActivity : AppCompatActivity() {
         val allInputs = dbHelper.getAllInputs()
         for (input in allInputs) {
             Toast.makeText(this, "Entrée: $input", Toast.LENGTH_SHORT).show()
+        }
 
-            // Lier le bouton "Accueil" pour rediriger vers MainActivity
-            findViewById<Button>(R.id.Accueil).setOnClickListener {
-                // Démarrer Ajout_Dep_Activity
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
-
+        // Lier le bouton "Accueil" pour rediriger vers MainActivity
+        findViewById<Button>(R.id.Accueil).setOnClickListener {
+            // Démarrer MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

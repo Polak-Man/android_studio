@@ -35,6 +35,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AjoutDepActivity::class.java)
             startActivity(intent)
         }
+
+        // Lier le bouton "button_stats" pour rediriger vers Stats
+        findViewById<Button>(R.id.button_stats).setOnClickListener {
+            // Démarrer Ajout_Dep_Activity
+            val intent = Intent(this, Stats::class.java)
+            startActivity(intent)
+        }
+        // Lier le bouton "aff_dep" pour rediriger vers Aff_activity
+        findViewById<Button>(R.id.aff_dep).setOnClickListener {
+            // Démarrer Ajout_Dep_Activity
+            val intent = Intent(this, Aff_Activity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class Aff_Activity : AppCompatActivity() {
+class Parametres : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_aff) // Vérifiez que ce layout existe
+        setContentView(R.layout.activity_parametres) // Vérifiez que ce layout existe
 
         // Lier le bouton "Accueil" pour rediriger vers MainActivity
         findViewById<Button>(R.id.Accueil).setOnClickListener {

@@ -28,6 +28,12 @@
         <activity
             android:name=".Aff_Activity"
             android:exported="true" />
+        <activity
+            android:name=".Stats"
+            android:exported="true" />
+        <activity
+            android:name=".Parametres"
+            android:exported="true" />
 
     </application>
 

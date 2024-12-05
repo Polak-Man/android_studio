@@ -7,6 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,17 +24,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Vérifier les permissions
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+        }
+
         // Lier le bouton "button_ajout_dep" pour rediriger vers AjoutDepActivity
         findViewById<Button>(R.id.button_ajout_dep).setOnClickListener {
             // Démarrer Ajout_Dep_Activity
             val intent = Intent(this, AjoutDepActivity::class.java)
             startActivity(intent)
         }
-        // Lier le bouton "button_ajout_dep" pour rediriger vers AjoutDepActivity
-        findViewById<Button>(R.id.button_ajout_dep).setOnClickListener {
-            // Démarrer Ajout_Dep_Activity
-            val intent = Intent(this, AjoutDepActivity::class.java)
-            startActivity(intent)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // Permissions accordées, vous pouvez accéder au stockage externe ici
         }
     }
 }

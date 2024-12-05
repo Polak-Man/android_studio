@@ -1,20 +1,32 @@
 package com.example.super_app
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.super_app.element_liste
 
-class Aff_Activity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var elementListe: ArrayList<element_liste>
+    private lateinit var adapter: ElementListeAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_aff) // Vérifiez que ce layout existe
 
-        // Lier le bouton "Accueil" pour rediriger vers MainActivity
-        findViewById<Button>(R.id.Accueil).setOnClickListener {
-            // Démarrer Ajout_Dep_Activity
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        elementListe = ArrayList()
+        loadElements()
+        adapter = ElementListeAdapter(this, elementListe)
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+    }
+
+    private fun loadElements() {
+
+        elementListe.add(element_liste("Item 1","Description 1", "Description 1" ,"Description 1"))
+        elementListe.add(element_liste("Item 2", "Description 2" ,"Description 2","Description 2"))
+        elementListe.add(element_liste("Item 3","Description 3","Description 3", "Description 3"))
     }
 }
+

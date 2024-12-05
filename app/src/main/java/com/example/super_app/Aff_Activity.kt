@@ -11,7 +11,7 @@ class Aff_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_aff) // Vérifiez que ce layout existe
 
         // Lier le bouton "Accueil" pour rediriger vers MainActivity
-        findViewById<Button>(R.id.accueil).setOnClickListener {
+        findViewById<Button>(R.id.Accueil).setOnClickListener {
             // Démarrer Ajout_Dep_Activity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

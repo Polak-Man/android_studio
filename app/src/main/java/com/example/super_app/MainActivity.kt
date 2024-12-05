@@ -48,6 +48,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Aff_Activity::class.java)
             startActivity(intent)
         }
+        // Lier le bouton "aff_dep" pour rediriger vers Aff_activity
+        findViewById<Button>(R.id.param).setOnClickListener {
+            // Démarrer Ajout_Dep_Activity
+            val intent = Intent(this, Parametres::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

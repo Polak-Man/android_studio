@@ -10,8 +10,11 @@ import androidx.core.view.WindowInsetsCompat
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
+    private var isDarkTheme = false // Variable pour suivre l'état du thème
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,28 +34,40 @@ class MainActivity : AppCompatActivity() {
 
         // Lier le bouton "button_ajout_dep" pour rediriger vers AjoutDepActivity
         findViewById<Button>(R.id.button_ajout_dep).setOnClickListener {
-            // Démarrer Ajout_Dep_Activity
             val intent = Intent(this, AjoutDepActivity::class.java)
             startActivity(intent)
         }
 
         // Lier le bouton "button_stats" pour rediriger vers Stats
         findViewById<Button>(R.id.button_stats).setOnClickListener {
-            // Démarrer Ajout_Dep_Activity
             val intent = Intent(this, Stats::class.java)
             startActivity(intent)
         }
+
         // Lier le bouton "aff_dep" pour rediriger vers Aff_activity
         findViewById<Button>(R.id.aff_dep).setOnClickListener {
-            // Démarrer Ajout_Dep_Activity
             val intent = Intent(this, Aff_Activity::class.java)
             startActivity(intent)
         }
-        // Lier le bouton "aff_dep" pour rediriger vers Aff_activity
+
+        // Lier le bouton "param" pour rediriger vers Parametres
         findViewById<Button>(R.id.param).setOnClickListener {
-            // Démarrer Ajout_Dep_Activity
             val intent = Intent(this, Parametres::class.java)
             startActivity(intent)
+        }
+
+        // Lier le bouton "button_theme" pour changer le thème
+        findViewById<Button>(R.id.button_theme).setOnClickListener {
+            toggleTheme()
+        }
+    }
+
+    private fun toggleTheme() {
+        isDarkTheme = !isDarkTheme // Inverser l'état du thème
+        if (isDarkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) // Activer le mode sombre
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // Activer le mode clair
         }
     }
 
